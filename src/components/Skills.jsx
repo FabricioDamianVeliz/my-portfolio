@@ -1,36 +1,44 @@
 export default function Skills() {
-  const skillCategories = [
+  const categories = [
     {
-      category: 'Microsoft Power Platform',
-      skills: ['Power Apps', 'Power Automate', 'Power BI', 'SharePoint', 'Copilot Studio', 'AI Builder']
+      title: "Microsoft Power Platform",
+      skills: ["Power Apps", "Power Automate", "Power BI", "Copilot Studio", "AI Builder"],
+      bg: "bg-blue-50",
+      text: "text-blue-700"
     },
     {
-      category: 'Low-Code / No-Code',
-      skills: ['Mendix', 'ServiceNow', 'Integrations', 'API REST', 'Workflows', 'Automations']
+      title: "Desarrollo Low-Code",
+      skills: ["Mendix", "SharePoint Lists", "ServiceNow Integration", "Dataverse"],
+      bg: "bg-purple-50",
+      text: "text-purple-700"
     },
     {
-      category: 'Data & IA',
-      skills: ['Python', 'Data Analytics', 'Machine Learning', 'AI Generativa', 'Modelos Predictivos', 'SQL']
+      title: "Data Science & AI",
+      skills: ["Python", "Machine Learning", "Modelos Predictivos", "Vector Databases", "GPT Integration"],
+      bg: "bg-orange-50",
+      text: "text-orange-700"
     },
     {
-      category: 'Herramientas',
-      skills: ['Git/GitHub', 'VS Code', 'Office 365', 'Teams', 'Agile', 'Problem Solving']
-    },
+      title: "Habilidades Blandas",
+      skills: ["Comunicación Efectiva", "Resolución de Problemas", "Trabajo en Equipo", "Gestión del Tiempo"],
+      bg: "bg-green-50",
+      text: "text-green-700"
+    }
   ];
 
   return (
-    <section id="skills" className="py-20 bg-gray-50">
+    <section id="skills" className="py-24 bg-white border-y border-slate-100">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="section-title">Skills & Tecnologías</h2>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {skillCategories.map((cat, idx) => (
-            <div key={idx} className="bg-white p-6 rounded-lg shadow-md">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">{cat.category}</h3>
-              <ul className="space-y-2">
+        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-12 text-center">Stack Tecnológico</h2>
+        
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {categories.map((cat, idx) => (
+            <div key={idx} className="p-6 rounded-2xl border border-slate-100 hover:border-blue-200 hover:shadow-lg transition-all duration-300">
+              <h3 className={`text-lg font-bold mb-4 ${cat.text}`}>{cat.title}</h3>
+              <ul className="space-y-3">
                 {cat.skills.map((skill, i) => (
-                  <li key={i} className="text-gray-700 flex items-center">
-                    <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+                  <li key={i} className="flex items-center text-slate-600 text-sm font-medium">
+                    <span className={`w-2 h-2 rounded-full mr-2 ${cat.bg.replace('bg-', 'bg-').replace('50', '400')}`}></span>
                     {skill}
                   </li>
                 ))}
